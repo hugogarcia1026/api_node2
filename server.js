@@ -5,6 +5,8 @@ const app = express();
 
 app.use(express.json());
 
+const produtosRoutes = require('./routes/produtos'); 
+
 const conexao = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -21,6 +23,8 @@ conexao.connect((erro) => {
     }
 });
 
+app.use('/produtos', produtosRoutes(conexao));
+
 app.get('/', (req, res) => {
     res.send('API funcionando!');
 });
@@ -28,4 +32,3 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
-
