@@ -25,22 +25,6 @@ app.get('/', (req, res) => {
     res.send('API funcionando!');
 });
 
-app.get('/produtos', (req, res) => {
-
-    const sql = 'SELECT * FROM vw_produtos';
-
-    conexao.query(sql, (erro, resultado) => {
-
-        if (erro) {
-            res.status(500).send('Erro no banco');
-        } else {
-            res.json(resultado);
-        }
-
-    });
-
-});
-
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });

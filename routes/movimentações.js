@@ -3,6 +3,8 @@ const router = express.Router();
 
 module.exports = (conexao) => {
 
+    //ROTA GET//
+    
     router.get('/', (req, res) => {
 
         const sql = 'SELECT * FROM movimentacoes';
@@ -19,6 +21,8 @@ module.exports = (conexao) => {
         });
 
     });
+
+    //ROTA POST//
 
     router.post('/entrada', (req, res) => {
 
